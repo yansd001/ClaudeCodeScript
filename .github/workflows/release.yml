@@ -1,0 +1,27 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create or update Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0
+          name: v1.0
+          body: "烟神殿AI工具一键安装脚本 - yansd666.com"
+          make_latest: true
+          files: |
+            install_claude.bat
+            onekeyInstall.bat
+            Codex.bat
